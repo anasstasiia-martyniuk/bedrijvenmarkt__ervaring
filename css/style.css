@@ -1,0 +1,76 @@
+@import url("./fonts.css");
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Telegraf;
+    overflow-x: clip;
+    background-color: #000;
+    color: #fff;
+}
+
+main {
+    width: 100%;
+    overflow-x: clip;
+}
+
+h1 {
+    font-size: clamp(2rem, 7vw, 6rem);
+}
+
+/* Vertical sections */
+
+.hero,
+.about,
+.footer {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.about h2,
+.footer h2 {
+    font-size: clamp(2.5rem, 7vw, 6rem);
+}
+
+/* Horizontal scrolling sections */
+.horizontal-section {
+    position: relative;
+    width: 100%;
+    height: 300vh;
+    height: 300svh;
+    overflow: clip;
+}
+
+.horizontal-track {
+    position: sticky;
+    top: 0;
+    display: flex;
+    width: max-content;
+    height: 100vh;
+    height: 100svh;
+    will-change: transform;
+}
+
+.panel {
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
