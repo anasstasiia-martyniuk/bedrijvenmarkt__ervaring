@@ -27,9 +27,7 @@ h1 {
 
 /* Vertical sections */
 
-.hero,
-.about,
-.footer {
+.fluid-section {
     min-height: 100vh;
     min-height: 100svh;
     display: flex;
@@ -41,8 +39,7 @@ h1 {
     font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
-.about h2,
-.footer h2 {
+h2 {
     font-size: clamp(2.5rem, 7vw, 6rem);
 }
 
@@ -73,4 +70,100 @@ h1 {
     align-items: center;
     justify-content: center;
     padding: 2rem;
+}
+
+
+/* Roulette */
+
+.roulette-section {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+}
+
+.roulette-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.roulette-title {
+    font-family: "Telegraf", sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 800;
+}
+
+.roulette-grid {
+    max-width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.roulette-cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #e8e5df;
+    color: #000;
+    border: 1px solid rgb(3 47 53 / 15%);
+    font-family: "Telegraf", sans-serif;
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    font-weight: 800;
+    text-align: center;
+    overflow-wrap: anywhere;
+    transition: background-color 0.08s linear, color 0.08s linear;
+}
+
+.roulette-button {
+    padding: 1rem 1.5rem;
+    border: 1px solid #fff;
+    border-radius: 0;
+    background-color: #fff;
+    color: #000000;
+    font-family: "Telegraf", sans-serif;
+    font-weight: 400;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.roulette-button:hover:not(:disabled) {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+
+.roulette-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.roulette-button span {
+    margin-left: 0.75rem;
+}
+
+.roulette-result {
+    min-height: 1.5em;
+}
+
+@media (max-width: 767.98px) {
+    .roulette-cell {
+        aspect-ratio: 2 / 1;
+    }
+}
+
+.after-roulette {
+    display: none;
+}
+
+.after-roulette.is-visible {
+    display: block;
+}
+
+.matched-section{
+    background-color: #1e79f0;
 }

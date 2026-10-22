@@ -44,5 +44,80 @@ if (window.visualViewport) {
 }
 
 window.addEventListener("load", requestUpdate);
-
 updateHorizontalScroll();
+
+
+const rouletteSection = document.querySelector(".roulette-section");
+const afterRoulette = document.querySelector(".after-roulette");
+
+if (rouletteSection) {
+    const cells = rouletteSection.querySelectorAll(".roulette-cell");
+    const button = rouletteSection.querySelector(".roulette-button");
+    const result = rouletteSection.querySelector(".roulette-result");
+
+    const companies = [
+        { name: "Tjecco", color: "#08e8de" },
+        { name: "Eudres", color: "#930f51" },
+        { name: "Timemate", color: "#1e79f0" }
+    ];
+
+    const winner = companies[2];
+    let spinning = false;
+    let rouletteStarted = false;
+    let touchStartY = 0;
+    
+    const preventScroll = (event) => {
+        if (rouletteStarted) return;
+        
+        const rect = rouletteSection.getBoundingClientRect();
+        const scrollingDown = event.type === "wheel" ? event.deltaY > 0 : touchStartY > event.touches[0].clientY;
+
+        if (scrollingDown && rect.top < 1 && rect.bottom > window.innerHeight) {
+            event.preventDefault();
+        }
+    }
+
+    window.addEventListener("wheel", preventScroll, { passive: false });
+
+    window.addEventListener("touchstart", event => {
+        touchStartY = event.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+
+    const showCompany = (cell, company) => {
+        cell.textContent = company.name;
+        cell.style.backgroundColor = company.color;
+        cell.style.color = "#fff";
+    }
+
+    button.addEventListener("click", () => {
+        rouletteStarted = true;
+
+        if (spinning) return;
+
+        spinning = true;
+        button.disabled = true;
+        result.textContent = "";
+
+        cells.forEach((cell, index) => {
+            const interval = setInterval(() => {
+                showCompany(
+                    cell,
+                    companies[Math.floor(Math.random() * companies.length)]
+                );
+            }, 100);
+
+            setTimeout(() => {
+                clearInterval(interval);
+                showCompany(cell, winner);
+
+                if (index === cells.length - 1) {
+                    spinning = false;
+                    button.disabled = false;
+                    afterRoulette.classList.add("is-visible");
+                }
+            }, 1500 + index * 650);
+        });
+    });
+}
