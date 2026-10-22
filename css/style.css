@@ -167,3 +167,102 @@ h2 {
 .matched-section{
     background-color: #1e79f0;
 }
+
+.reflection-cards {
+    position: relative;
+    padding-bottom: 10vh;
+}
+
+.reflection-card {
+    position: sticky;
+    top: 10vh;
+    width: 100%;
+    max-width: 850px;
+    height: min(70vh, 600px);
+    min-height: 350px;
+    margin: 0 auto 15vh;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.reflection-card:nth-child(1) {
+    z-index: 1;
+    transform: rotate(-1deg);
+}
+
+.reflection-card:nth-child(2) {
+    z-index: 2;
+    transform: rotate(2deg);
+}
+
+.reflection-card:nth-child(3) {
+    z-index: 3;
+    transform: rotate(-1.5deg);
+}
+
+.reflection-card:nth-child(4) {
+    z-index: 4;
+    transform: rotate(3deg);
+}
+
+.reflection-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(.2, .7, .2, 1);
+}
+
+.reflection-card.is-flipped .reflection-card-inner {
+    transform: rotateY(180deg);
+}
+
+.reflection-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: clamp(1.25rem, 5vw, 4rem);
+    border: 2px solid #000000;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow-wrap: anywhere;
+}
+
+.reflection-card:nth-child(1) .reflection-front,
+.reflection-card:nth-child(4) .reflection-front {
+    background: #0db6ad;
+}
+
+.reflection-card:nth-child(2) .reflection-front {
+    background: #930f51;
+}
+
+.reflection-card:nth-child(3) .reflection-front {
+    background: #1e79f0;
+}
+
+.reflection-back {
+    background: #fff;
+    color: #000;
+    transform: rotateY(180deg);
+}
+
+.reflection-face h3 {
+    font-family: "Telegraf", sans-serif;
+    font-size: clamp(1.4rem, 3.5vw, 3rem);
+    font-weight: 800;
+}
+
+.reflection-face p {
+    flex: 1;
+    margin: 1rem 0;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+.reflection-face span {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}

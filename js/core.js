@@ -56,7 +56,7 @@ if (rouletteSection) {
     const result = rouletteSection.querySelector(".roulette-result");
 
     const companies = [
-        { name: "Tjecco", color: "#08e8de" },
+        { name: "Tjecco", color: "#0db6ad" },
         { name: "Eudres", color: "#930f51" },
         { name: "Timemate", color: "#1e79f0" }
     ];
@@ -101,12 +101,7 @@ if (rouletteSection) {
         result.textContent = "";
 
         cells.forEach((cell, index) => {
-            const interval = setInterval(() => {
-                showCompany(
-                    cell,
-                    companies[Math.floor(Math.random() * companies.length)]
-                );
-            }, 100);
+            const interval = setInterval(() => { showCompany(cell, companies[Math.floor(Math.random() * companies.length)]); }, 100);
 
             setTimeout(() => {
                 clearInterval(interval);
@@ -121,3 +116,29 @@ if (rouletteSection) {
         });
     });
 }
+
+
+document.querySelectorAll(".reflection-card").forEach(card => {
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-pressed", "false");
+
+    const flipCard = () => {
+        const flipped = card.classList.toggle("is-flipped");
+        card.setAttribute("aria-pressed", String(flipped));
+    }
+
+    card.addEventListener("click", event => {
+        if (event.target.closest("a, button")) return;
+        flipCard();
+    });
+
+    card.addEventListener("keydown", event => {
+        if (event.target !== card) return;
+
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            flipCard();
+        }
+    });
+});
