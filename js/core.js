@@ -98,7 +98,6 @@ if (rouletteSection) {
 
         spinning = true;
         button.disabled = true;
-        result.textContent = "";
 
         cells.forEach((cell, index) => {
             const interval = setInterval(() => { showCompany(cell, companies[Math.floor(Math.random() * companies.length)]); }, 100);
