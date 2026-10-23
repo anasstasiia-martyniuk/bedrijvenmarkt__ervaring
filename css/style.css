@@ -25,18 +25,6 @@ h1 {
     font-size: clamp(2rem, 7vw, 6rem);
 }
 
-.bg-tjecco {
-    background-color: #0db6ad;
-}
-
-.bg-eudres {
-    background-color: #930f51;
-}
-
-.bg-timemate {
-    background-color: #1e79f0;
-}
-
 /* Vertical sections */
 
 .fluid-section {
@@ -83,6 +71,256 @@ h2 {
     justify-content: center;
     padding: 2rem;
 }
+
+
+.company-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 100%;
+    background: #000;
+    color: #f7f5f0;
+
+    /* Override only company panels */
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.company-content {
+    position: relative;
+    z-index: 2;
+    width: min(50%, 650px);
+    margin-right: auto;
+}
+
+.company-number {
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+}
+
+.company-content h2 {
+    margin-bottom: 2rem;
+    overflow-wrap: anywhere;
+}
+
+.company-content p {
+    max-width: 520px;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    line-height: 1.8;
+}
+
+.company-tags {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+
+.company-graphic {
+    position: absolute;
+    z-index: 1;
+    width: min(52vw, 650px);
+    height: auto;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: visible;
+    pointer-events: none;
+}
+
+/* TimeMate — blue cubes */
+.timemate-panel {
+    --company-color: #1e79f0;
+}
+
+.timemate-panel .company-number,
+.timemate-panel .company-tags {
+    color: var(--company-color);
+}
+
+.cube,
+.floating-square {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.cube-large {
+    animation: float-cube 6s ease-in-out infinite;
+}
+
+.cube-small {
+    animation: float-cube 5s ease-in-out infinite reverse;
+}
+
+.floating-square {
+    animation: float-cube 7s ease-in-out infinite;
+}
+
+/* Tjecco — turquoise triangles */
+.tjecco-panel {
+    --company-color: #08bdb3;
+}
+
+.tjecco-panel .company-number,
+.tjecco-panel .company-tags {
+    color: var(--company-color);
+}
+
+.triangle-large {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: float-cube 7s ease-in-out infinite;
+}
+
+.triangle-small {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: float-cube 5s ease-in-out infinite reverse;
+}
+
+.triangle-accent {
+    animation: float-cube 6s ease-in-out infinite;
+}
+
+/* EUDRES — pink hemispheres and spheres */
+.eudres-panel {
+    --company-color: #e3857a;
+}
+
+.eudres-panel .company-number,
+.eudres-panel .company-tags {
+    color: var(--company-color);
+}
+
+.eudres-half {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: float-cube 8s ease-in-out infinite;
+}
+
+.sphere {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: float-cube 5s ease-in-out infinite;
+}
+
+.sphere-medium {
+    animation-delay: -2s;
+}
+
+.sphere-small {
+    animation-delay: -1s;
+}
+
+.sphere-tiny {
+    animation-delay: -3s;
+}
+
+@keyframes float-cube {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .company-graphic *,
+    .company-graphic {
+        animation: none !important;
+    }
+}
+
+
+.company-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    padding: clamp(1.5rem, 5vh, 4rem) clamp(1.25rem, 6vw, 6rem);
+    background: #000;
+    color: #f7f5f0;
+}
+
+.company-panel .container-fluid {
+    position: relative;
+    z-index: 2;
+    padding: 0;
+}
+
+.company-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.company-number {
+    display: block;
+    margin-bottom: 1.5rem;
+    color: var(--company-color);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+}
+
+.company-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    overflow-wrap: anywhere;
+    text-transform: uppercase;
+}
+
+.company-content p {
+    max-width: 520px;
+    margin-bottom: 0;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.company-content p:last-of-type {
+    font-size: clamp(0.8rem, 1vw, 1rem);
+}
+
+.company-tags {
+    display: inline-block;
+    margin: 1.5rem 0;
+    color: var(--company-color);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    overflow-wrap: anywhere;
+}
+
+.company-graphic {
+    position: absolute;
+    z-index: 1;
+    width: min(45vw, 600px);
+    height: auto;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.tjecco-panel {
+    --company-color: #0db6ad;
+}
+
+.eudres-panel {
+    --company-color: #930f51;
+}
+
+.timemate-panel {
+    --company-color: #1e79f0;
+}
+
 
 
 /* Roulette */
@@ -180,16 +418,20 @@ h2 {
     background-color: #1e79f0;
 }
 
+/* Characteristic */
+
 .char-card {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 1px solid #fff;
     min-height: 350px;
+    color: #fff;
     height: 100%;
     padding: clamp(1.25rem, 3vw, 2rem);
     overflow: hidden;
-    transition: background-color 0.4s ease, transform 0.4s ease;
+    transition: border-color 0.4s ease, transform 0.4s ease;
 }
 
 .char-card .char-number {
@@ -214,19 +456,19 @@ h2 {
 }
 
 .char-card p {
-    color: #c5d4d2;
+    color: #fff;
     font-size: 0.9rem;
     line-height: 1.7;
     margin: 0;
 }
 
 .char-card:hover {
-    background: #20565b;
     transform: translateY(-8px);
+    cursor: pointer;
+    border-color: #930f51;
 }
 
 .char-card:hover .employer-number {
-    color: #08e8de;
     transform: translateX(8px);
 }
 
