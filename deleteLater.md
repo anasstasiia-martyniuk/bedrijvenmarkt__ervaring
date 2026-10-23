@@ -1,17 +1,3 @@
-## B. Eén bedrijf onder de loep
-
-Kies één bedrijf en verdiep je daar iets verder in.
-- Timemate 
-
-Welke functies of werkzaamheden zijn daar interessant voor een Software Developer?
-- 
-
-Welke programmeertalen, technieken of andere vaardigheden lijken daar belangrijk?
-- схоже на те що там потрібно буде працювати з усіма частинами веб сайту, як фронтенд так і бекенду. 
-вони працюють з react та laravel і різними js бібліотеками. 
-
-Zou jij daar stage willen lopen of later willen werken? Leg uit waarom wel of niet.
-- Поки що стажування, але якщо воно піде добре, то я хотіла би там працювати :D
 
 ## C. De match met jou
 
