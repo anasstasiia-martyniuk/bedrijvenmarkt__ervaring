@@ -25,6 +25,18 @@ h1 {
     font-size: clamp(2rem, 7vw, 6rem);
 }
 
+.bg-tjecco {
+    background-color: #0db6ad;
+}
+
+.bg-eudres {
+    background-color: #930f51;
+}
+
+.bg-timemate {
+    background-color: #1e79f0;
+}
+
 /* Vertical sections */
 
 .fluid-section {
@@ -167,6 +179,65 @@ h2 {
 .matched-section{
     background-color: #1e79f0;
 }
+
+.char-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px;
+    height: 100%;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    overflow: hidden;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.char-card .char-number {
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    color: rgb(247 245 240 / 15%);
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.char-card-content {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.char-card h3 {
+    font-family: "Telegraf", sans-serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 800;
+    margin-block: 0.75rem;
+}
+
+.char-card p {
+    color: #c5d4d2;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.char-card:hover {
+    background: #20565b;
+    transform: translateY(-8px);
+}
+
+.char-card:hover .employer-number {
+    color: #08e8de;
+    transform: translateX(8px);
+}
+
+.char-card:hover .employer-card-content {
+    transform: translateY(-5px);
+}
+
+.char-card:hover .employer-arrow {
+    transform: translate(4px, -4px);
+}
+
 
 .reflection-cards {
     position: relative;
