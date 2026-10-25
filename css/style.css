@@ -699,3 +699,86 @@ h2 {
     font-size: 0.8rem;
     letter-spacing: 0.08em;
 }
+
+.final-label,
+.final-number {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+}
+
+.final-label {
+    color: #a1a1aa;
+}
+
+.final-number {
+    color: var(--color-timemate);
+    font-weight: 700;
+}
+
+.final-title {
+    font-size: clamp(2.5rem, 8.5vw, 7.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.07em;
+    overflow-wrap: anywhere;
+}
+
+.final-title span {
+    color: var(--color-timemate);
+}
+
+.final-decoration {
+    min-height: 180px;
+    aspect-ratio: 1.3 / 1;
+    max-width: 360px;
+    background: var(--color-timemate);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.final-decoration::before {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    transform: rotate(-8deg);
+}
+
+.final-decoration span {
+    font-size: clamp(6rem, 15vw, 12rem);
+    font-weight: 800;
+    line-height: 1;
+    color: #111318;
+}
+
+.final-text {
+    max-width: 520px;
+}
+
+.final-text h3 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+}
+
+.final-text p {
+    color: #c4c4cc;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.final-footer {
+    padding-top: 1rem;
+    border-top: 1px solid #393b43;
+    color: var(--color-timemate);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.final-arrow {
+    font-size: 1.4rem;
+}
